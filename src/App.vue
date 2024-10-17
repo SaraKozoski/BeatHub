@@ -8,6 +8,8 @@ const endereço = ref([])
 async function getPessoa() {
   const { data } = await supabase.from('pessoa').select('nome, email, datanasc ')
   pessoa.value = data
+
+
 }
 
 async function getEndereço() {
@@ -19,6 +21,10 @@ onMounted(() => {
   getEndereço()
 
 })
+
+
+// async function insertValuesPessoa() {
+  //const { error } = await supabase.from('pessoa').insert({ name:  })}
 </script>
 
 <template>
@@ -27,7 +33,9 @@ onMounted(() => {
     <li>{{ pessoas.email }}</li>
     <li>{{ pessoas.datanasc }}</li>
     <li>{{ endereço}}</li>
-    <!--<li>{{ Endereço }}</li>-->    
   </ul>
+
+  <label for="">Nome:</label>
+  <input type="text" v-model="nome" />
 </template>
  
